@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -17,7 +18,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(24, 512, 273, 30)];
+  //  loginButton.center = self.view.center;
+    loginButton.delegate=self;
+    [self.view addSubview:loginButton];
+
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+
+}
+
+- (void)  loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+                error:(NSError *)error{
+
+
+    NSLog(@"Login Successfully");
+    
+    
+    [[UIApplication sharedApplication]delegate].window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+
+
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+
+
+    NSLog(@"Logout Successfully");
+
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

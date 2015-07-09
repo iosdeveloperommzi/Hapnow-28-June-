@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  Hapnow
+//
+//  Created by Gurpreet Singh on 6/23/15.
+//  Copyright (c) 2015 Ommzi. All rights reserved.
+//
+
+#ifndef Hapnow_PrefixHeader_pch
+#define Hapnow_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Constants.h"
+#import "AppDelegate.h"
+#import "SBJSON.h"
+#import "ASIHTTPRequest.h"
+#import "PPWeb_Services.h"
+
+#endif
+
+#define kAppDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#define webServer_Shared [PPWeb_Services sharedInstance]
+
+
+#endif
